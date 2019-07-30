@@ -9,7 +9,7 @@ pipeline {
               }
 			  
 			  dir("Angular") {
-                sh "ng install && ng build"
+                sh "npm install && ng build"
               }
             }
         }
