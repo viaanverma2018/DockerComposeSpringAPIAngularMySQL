@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
               dir("Spring") {
-                sh "echo Building"
+                sh "mvn clean install"
               }
             }
         }
