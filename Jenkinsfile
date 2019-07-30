@@ -8,8 +8,8 @@ pipeline {
                 sh "mvn clean install"
               }
 			  
-	  	dir("Angular") {
-                sh "ng build"
+			  dir("Angular") {
+                sh "ng install && ng build"
               }
             }
         }
