@@ -3,7 +3,7 @@ version: '3'
 services:
   database:
     image: mysql
-    container_name: database
+    container_name: spring-db
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: dockerAngularSpringDatabase
@@ -22,7 +22,7 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - database
+      - spring-db
     volumes:
       - ./Spring/target/spring-0.0.1-SNAPSHOT.jar:/application.jar
     command: ["java", "-jar", "application.jar"]
