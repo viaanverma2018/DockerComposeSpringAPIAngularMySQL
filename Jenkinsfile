@@ -9,15 +9,17 @@ pipeline {
               }
 			  
 			  dir("Angular") {
-                sh "npm install && ng build"
+                sh "npm install && ng build --prod"
               }
             }
         }
 		
 		stage('Start test image') {
 			steps {
-				sh "echo starting"
-			}
+					  sh "docker-composer build"
+					  sh "docker-compose up -d"
+					}
+
 		}
 		
 		stage('E2E Tests') {
@@ -29,7 +31,7 @@ pipeline {
 	
 	post {
       always {
-          sh "echo down"
+		sh "docker-compose down || true"
       }
     }
 }
