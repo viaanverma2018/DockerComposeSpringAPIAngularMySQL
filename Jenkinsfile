@@ -7,6 +7,10 @@ pipeline {
               dir("Spring") {
                 sh "mvn clean install"
               }
+			  
+	  	dir("Angular") {
+                sh "ng build"
+              }
             }
         }
 		
