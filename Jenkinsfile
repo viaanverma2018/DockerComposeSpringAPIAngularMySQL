@@ -16,8 +16,8 @@ pipeline {
 		
 		stage('Start test image') {
 			steps {
-					  sh "docker-composer build"
-					  sh "docker-compose up -d"
+					  sh "/usr/bin/docker-compose build"
+					  sh "/usr/bin/docker-compose up -d"
 					}
 
 		}
@@ -31,7 +31,7 @@ pipeline {
 	
 	post {
       always {
-		sh "docker-compose down || true"
+		sh "/usr/bin/docker-compose down || true"
       }
     }
 }
